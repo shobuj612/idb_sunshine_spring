@@ -1,15 +1,16 @@
+
 package com.sunshine.sunspring.model;
 
 import jakarta.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name = "buyer")
 public class Buyer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Use IDENTITY for Oracle if using triggers or sequence
     @Column(name = "buyer_id")
-    private Long buyerId;
+    private String buyerId;
 
     @Column(name = "buyer_name", nullable = false)
     private String buyerName;
@@ -26,15 +27,22 @@ public class Buyer {
     @Column(name = "address")
     private String address;
 
-    // No-args constructor (required by JPA)
     public Buyer() {}
 
-    // Getters and Setters
-    public Long getBuyerId() {
+    // Auto-generate String ID before saving
+    @PrePersist
+    public void generateId() {
+        if (this.buyerId == null || this.buyerId.isEmpty()) {
+            this.buyerId = UUID.randomUUID().toString();
+        }
+    }
+
+    // Getters and setters
+    public String getBuyerId() {
         return buyerId;
     }
 
-    public void setBuyerId(Long buyerId) {
+    public void setBuyerId(String buyerId) {
         this.buyerId = buyerId;
     }
 
@@ -77,5 +85,68 @@ public class Buyer {
     public void setAddress(String address) {
         this.address = address;
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

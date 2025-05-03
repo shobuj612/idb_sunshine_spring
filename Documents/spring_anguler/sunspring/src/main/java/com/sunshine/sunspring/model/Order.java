@@ -1,9 +1,11 @@
 package com.sunshine.sunspring.model;
+
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
-@Table(name = "orders") // 'order' is a reserved keyword in SQL
+@Table(name = "orders") // 'order' is a reserved word in SQL
 public class Order {
 
     @Id
@@ -30,8 +32,15 @@ public class Order {
     @Column(name = "status")
     private String status;
 
-    // No-args constructor
     public Order() {}
+
+    // Auto-generate UUID if not set
+    @PrePersist
+    public void generateId() {
+        if (this.orderId == null || this.orderId.isEmpty()) {
+            this.orderId = UUID.randomUUID().toString();
+        }
+    }
 
     // Getters and Setters
     public String getOrderId() {
@@ -89,7 +98,4 @@ public class Order {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    
-    
 }

@@ -3,16 +3,7 @@ package com.sunshine.sunspring.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 import com.sunshine.sunspring.model.Buyer;
 import com.sunshine.sunspring.repository.BuyerRepository;
@@ -21,58 +12,32 @@ import com.sunshine.sunspring.repository.BuyerRepository;
 @RequestMapping("/buyer")
 @CrossOrigin(origins = "http://localhost:4200")
 public class BuyerController {
-	
-	@Autowired
-	
-	private BuyerRepository br;
-	
-	@GetMapping
-	
-	// this is the method to find all the buyer object from the table
-	
-	public List<Buyer> getAllBuyer(){
-		
-		return br.findAll();
-	}
-	
-	
-	//  this is the method to update the buyer by the id ,and put the update value
-	
-	@PutMapping("/{id}")
-	
-	public Buyer updateBuyer(@PathVariable Long id,@RequestBody Buyer buyer) {
-		
-		// this is to so that the new buyer not saved in the database 
-		
-		buyer.setBuyerId(id);
-		  
-		  
-		return br.save(buyer);
-		
-	}
-	
-	
-	
-	// this is to post means insert to the database
-	
-	
-	@PostMapping
-	
-	public Buyer postBuyer(@RequestBody Buyer buyer) {
-		
-		
-		return br.save(buyer);
-	}
-	
-	
-	
-	// this is the delete method 
-	
-	@DeleteMapping("/{id}")
-	
-	public void  deleteBuyer(@PathVariable Long id) {
-		
-		 br.deleteById(id);
-	}
 
+    @Autowired
+    private BuyerRepository br;
+
+    // Get all buyers
+    @GetMapping
+    public List<Buyer> getAllBuyer() {
+        return br.findAll();
+    }
+
+    // Update buyer by ID
+    @PutMapping("/{id}")
+    public Buyer updateBuyer(@PathVariable String id, @RequestBody Buyer buyer) {
+        buyer.setBuyerId(id); // Ensure the ID is set for update
+        return br.save(buyer);
+    }
+
+    // Insert new buyer (ID generated automatically in model)
+    @PostMapping
+    public Buyer postBuyer(@RequestBody Buyer buyer) {
+        return br.save(buyer);
+    }
+
+    // Delete buyer by ID
+    @DeleteMapping("/{id}")
+    public void deleteBuyer(@PathVariable String id) {
+        br.deleteById(id);
+    }
 }
