@@ -2,18 +2,18 @@ package com.sunshine.sunspring.model;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "merchandising_info")
 public class MerchandisingInfo {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID using the database
     @Column(name = "merch_id")
-    private String merchId;
+    private Long merchId; // Changed from String to Long
 
     @Column(name = "order_id", nullable = false)
-    private String orderId;
+    private Long orderId; // Changed from String to Long
 
     @Column(name = "merchandiser_name")
     private String merchandiserName;
@@ -30,28 +30,20 @@ public class MerchandisingInfo {
 
     public MerchandisingInfo() {}
 
-    // Auto-generate String ID before saving
-    @PrePersist
-    public void generateId() {
-        if (this.merchId == null || this.merchId.isEmpty()) {
-            this.merchId = UUID.randomUUID().toString();
-        }
-    }
-
     // Getters and Setters
-    public String getMerchId() {
+    public Long getMerchId() {
         return merchId;
     }
 
-    public void setMerchId(String merchId) {
+    public void setMerchId(Long merchId) {
         this.merchId = merchId;
     }
 
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 

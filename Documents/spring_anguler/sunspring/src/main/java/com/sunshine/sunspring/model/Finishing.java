@@ -2,18 +2,18 @@ package com.sunshine.sunspring.model;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "finishing")
 public class Finishing {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID using the database
     @Column(name = "finish_id")
-    private String finishId;
+    private Long finishId; // Changed from String to Long
 
     @Column(name = "order_id", nullable = false)
-    private String orderId;
+    private Long orderId; // Changed from String to Long
 
     @Column(name = "finishing_date")
     @Temporal(TemporalType.DATE)
@@ -28,26 +28,20 @@ public class Finishing {
     // No-args constructor
     public Finishing() {}
 
-    // Automatically generate ID before persisting
-    @PrePersist
-    public void generateFinishId() {
-        this.finishId = "FIN-" + UUID.randomUUID().toString();
-    }
-
     // Getters and Setters
-    public String getFinishId() {
+    public Long getFinishId() {
         return finishId;
     }
 
-    public void setFinishId(String finishId) {
+    public void setFinishId(Long finishId) {
         this.finishId = finishId;
     }
 
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 

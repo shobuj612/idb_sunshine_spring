@@ -46,7 +46,7 @@ public class WarehouseController {
 	
 	@PutMapping("/{id}")
 	
-	public Warehouse updateWarehouse(@PathVariable String id , @RequestBody Warehouse ware) {
+	public Warehouse updateWarehouse(@PathVariable Long id , @RequestBody Warehouse ware) {
 		
 		ware.setWarehouseId(id);
 		
@@ -70,7 +70,7 @@ public class WarehouseController {
 	
 	
 	@DeleteMapping("/{id}")
-	public void deleteWarehouse(@PathVariable String id) {
+	public void deleteWarehouse(@PathVariable Long id) {
 		
 		
 		wr.deleteById(id);

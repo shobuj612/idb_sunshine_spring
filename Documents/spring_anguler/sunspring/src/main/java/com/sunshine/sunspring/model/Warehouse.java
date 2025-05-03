@@ -2,18 +2,18 @@ package com.sunshine.sunspring.model;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "warehouse")
 public class Warehouse {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID using the database
     @Column(name = "warehouse_id")
-    private String warehouseId;
+    private Long warehouseId; // Changed from String to Long
 
     @Column(name = "order_id", nullable = false)
-    private String orderId;
+    private Long orderId; // Changed from String to Long
 
     @Column(name = "received_date")
     @Temporal(TemporalType.DATE)
@@ -22,31 +22,23 @@ public class Warehouse {
     @Column(name = "stored_qty")
     private int storedQty;
 
-    // Auto-generate ID before inserting
-    @PrePersist
-    public void generateWarehouseId() {
-        if (this.warehouseId == null || this.warehouseId.isEmpty()) {
-            this.warehouseId = "WH-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
-        }
-    }
-
     // No-args constructor
     public Warehouse() {}
 
     // Getters and Setters
-    public String getWarehouseId() {
+    public Long getWarehouseId() {
         return warehouseId;
     }
 
-    public void setWarehouseId(String warehouseId) {
+    public void setWarehouseId(Long warehouseId) {
         this.warehouseId = warehouseId;
     }
 
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 

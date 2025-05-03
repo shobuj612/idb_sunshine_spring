@@ -41,7 +41,7 @@ public class FabricController {
 	
 	@PutMapping("/{id}")
 	
-	public FabricInfo updateFabric(@PathVariable String id , @RequestBody FabricInfo fabric) {
+	public FabricInfo updateFabric(@PathVariable Long id , @RequestBody FabricInfo fabric) {
 		
 		fabric.setFabricId(id);
 		
@@ -66,7 +66,7 @@ public class FabricController {
 	
 	
 	@DeleteMapping("/{id}")
-	public void deleteFabric(@PathVariable String id) {
+	public void deleteFabric(@PathVariable Long id) {
 		
 		fr.deleteById(id);
 	}

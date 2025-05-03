@@ -2,18 +2,18 @@ package com.sunshine.sunspring.model;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "qc_info")
 public class QC {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID using the database
     @Column(name = "qc_id")
-    private String qcId;
+    private Long qcId; // Changed from String to Long
 
     @Column(name = "order_id", nullable = false)
-    private String orderId;
+    private Long orderId; // Changed from String to Long
 
     @Column(name = "inspection_date")
     @Temporal(TemporalType.DATE)
@@ -28,31 +28,23 @@ public class QC {
     @Column(name = "remarks")
     private String remarks;
 
-    // Auto-generate ID before insert
-    @PrePersist
-    public void generateQcId() {
-        if (this.qcId == null || this.qcId.isEmpty()) {
-            this.qcId = "QC-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
-        }
-    }
-
     // Constructors
     public QC() {}
 
     // Getters and Setters
-    public String getQcId() {
+    public Long getQcId() {
         return qcId;
     }
 
-    public void setQcId(String qcId) {
+    public void setQcId(Long qcId) {
         this.qcId = qcId;
     }
 
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 

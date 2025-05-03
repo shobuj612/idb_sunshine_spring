@@ -2,18 +2,18 @@ package com.sunshine.sunspring.model;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "fabric_info") // Change this to match your table name in DB
 public class FabricInfo {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID using the database
     @Column(name = "fabric_id")
-    private String fabricId;
+    private Long fabricId; // Changed from String to Long
 
     @Column(name = "order_id", nullable = false)
-    private String orderId;
+    private Long orderId; // Changed from String to Long
 
     @Column(name = "fabric_type", nullable = false)
     private String fabricType;
@@ -28,31 +28,23 @@ public class FabricInfo {
     @Column(name = "available_stock")
     private int availableStock;
 
-    // No-args constructor
+    // Default constructor
     public FabricInfo() {}
 
-    // Auto-generate UUID for fabricId if not set
-    @PrePersist
-    public void generateId() {
-        if (this.fabricId == null || this.fabricId.isEmpty()) {
-            this.fabricId = UUID.randomUUID().toString();
-        }
-    }
-
     // Getters and Setters
-    public String getFabricId() {
+    public Long getFabricId() {
         return fabricId;
     }
 
-    public void setFabricId(String fabricId) {
+    public void setFabricId(Long fabricId) {
         this.fabricId = fabricId;
     }
 
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 

@@ -44,7 +44,7 @@ public class DesignInfoController {
 	
 	@PutMapping("/{id}")
 	
-	public DesignInfo updateDesign(@PathVariable String id, @RequestBody DesignInfo dn) {
+	public DesignInfo updateDesign(@PathVariable Long id, @RequestBody DesignInfo dn) {
 		
 		
 		dn.setDesignId(id);
@@ -75,7 +75,7 @@ public class DesignInfoController {
 	
 	@DeleteMapping("/{id}")
 	
-	public void deleteDesign(@PathVariable String id) {
+	public void deleteDesign(@PathVariable Long id) {
 		
 		dr.deleteById(id);
 	}

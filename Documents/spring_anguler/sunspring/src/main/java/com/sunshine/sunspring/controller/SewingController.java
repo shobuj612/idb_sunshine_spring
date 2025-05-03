@@ -47,7 +47,7 @@ public class SewingController {
 	
 	@PutMapping("/{id}")
 	
-	public Sewing updateSewing(@PathVariable String id , @RequestBody Sewing sew) {
+	public Sewing updateSewing(@PathVariable Long id , @RequestBody Sewing sew) {
 		
 		
 		sew.setSewingId(id);
@@ -72,7 +72,7 @@ public class SewingController {
 	
 	@DeleteMapping("/{id}")
 	
-	public void deleteSewing(@PathVariable String id) {
+	public void deleteSewing(@PathVariable Long id) {
 		
 		sr.deleteById(id);
 	}

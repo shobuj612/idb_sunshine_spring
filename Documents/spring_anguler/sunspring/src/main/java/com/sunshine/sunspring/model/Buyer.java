@@ -1,18 +1,17 @@
-
 package com.sunshine.sunspring.model;
 
 import jakarta.persistence.*;
-import java.util.UUID;
 
 @Entity
 @Table(name = "buyer")
 public class Buyer {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Use GenerationType.SEQUENCE for Oracle if needed
     @Column(name = "buyer_id")
-    private String buyerId;
+    private Long buyerId;
 
-    @Column(name = "buyer_name", nullable = false)
+    @Column(name = "buyer_name", nullable = true)
     private String buyerName;
 
     @Column(name = "contact_person")
@@ -29,20 +28,12 @@ public class Buyer {
 
     public Buyer() {}
 
-    // Auto-generate String ID before saving
-    @PrePersist
-    public void generateId() {
-        if (this.buyerId == null || this.buyerId.isEmpty()) {
-            this.buyerId = UUID.randomUUID().toString();
-        }
-    }
-
     // Getters and setters
-    public String getBuyerId() {
+    public Long getBuyerId() {
         return buyerId;
     }
 
-    public void setBuyerId(String buyerId) {
+    public void setBuyerId(Long buyerId) {
         this.buyerId = buyerId;
     }
 
@@ -86,67 +77,3 @@ public class Buyer {
         this.address = address;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

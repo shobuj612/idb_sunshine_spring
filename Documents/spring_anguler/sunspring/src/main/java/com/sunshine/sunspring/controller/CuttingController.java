@@ -47,7 +47,7 @@ public class CuttingController {
 	@PutMapping("/{id}")
 	
 	
-	public Cutting updateCutting(@PathVariable String id , @RequestBody Cutting cut) {
+	public Cutting updateCutting(@PathVariable Long id , @RequestBody Cutting cut) {
 		
 		
 		cut.setCuttingId(id);
@@ -76,7 +76,7 @@ public class CuttingController {
 	// this is the method to delete the cutting information in the database
 	
 	@DeleteMapping("/{id}")
-	public void deleteCutting(@PathVariable String id) {
+	public void deleteCutting(@PathVariable Long id) {
 		
 		cr.deleteById(id);
 	}

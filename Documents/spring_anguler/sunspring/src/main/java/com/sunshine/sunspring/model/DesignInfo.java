@@ -1,18 +1,18 @@
 package com.sunshine.sunspring.model;
 
 import jakarta.persistence.*;
-import java.util.UUID;
 
 @Entity
-@Table(name = "design_info") // Change this to match your table name in DB
+@Table(name = "design_info")
 public class DesignInfo {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "design_id")
-    private String designId;
+    private Long designId;
 
     @Column(name = "order_id", nullable = false)
-    private String orderId;
+    private Long orderId; // Changed from String to Long
 
     @Column(name = "design_name", nullable = false)
     private String designName;
@@ -26,31 +26,22 @@ public class DesignInfo {
     @Column(name = "remarks")
     private String remarks;
 
-    // No-args constructor
     public DesignInfo() {}
 
-    // Auto-generate UUID for designId if not set
-    @PrePersist
-    public void generateId() {
-        if (this.designId == null || this.designId.isEmpty()) {
-            this.designId = UUID.randomUUID().toString();
-        }
-    }
-
     // Getters and Setters
-    public String getDesignId() {
+    public Long getDesignId() {
         return designId;
     }
 
-    public void setDesignId(String designId) {
+    public void setDesignId(Long designId) {
         this.designId = designId;
     }
 
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 

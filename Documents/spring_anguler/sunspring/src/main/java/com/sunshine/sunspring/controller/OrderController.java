@@ -38,7 +38,7 @@ public class OrderController {
 	
 	// this is method to update row by the id and put row therer
 	@PutMapping("/{id}")
-	public Order updateOrder(@PathVariable String id , @RequestBody Order order) {
+	public Order updateOrder(@PathVariable Long id , @RequestBody Order order) {
 		
 		order.setOrderId(id);
 		
@@ -58,7 +58,7 @@ public class OrderController {
 	
 	@DeleteMapping("/{id}")
 	
-	public void deleteOrder(@PathVariable String id) {
+	public void deleteOrder(@PathVariable Long id) {
 		
 		or.deleteById(id);
 	}

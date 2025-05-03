@@ -39,7 +39,7 @@ public class FinishingController {
 	
 	@PutMapping("/{id}")
 	
-	public Finishing updateFinishing(@PathVariable String id , @RequestBody Finishing fin) {
+	public Finishing updateFinishing(@PathVariable Long id , @RequestBody Finishing fin) {
 		
 		
 		fin.setFinishId(id);
@@ -69,7 +69,7 @@ public class FinishingController {
 	
 	@DeleteMapping("/{id}")
 	
-	public void deleteFinishing(@PathVariable String id) {
+	public void deleteFinishing(@PathVariable Long id) {
 		
 		
 		fr.deleteById(id);

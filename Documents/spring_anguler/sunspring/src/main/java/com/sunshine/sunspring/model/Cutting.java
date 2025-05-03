@@ -2,18 +2,18 @@ package com.sunshine.sunspring.model;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "cutting")
 public class Cutting {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // For Oracle, use SEQUENCE if preferred
     @Column(name = "cutting_id")
-    private String cuttingId;
+    private Long cuttingId;
 
     @Column(name = "order_id", nullable = false)
-    private String orderId;
+    private Long orderId; // Changed from String to Long
 
     @Column(name = "cutting_start_date")
     @Temporal(TemporalType.DATE)
@@ -29,25 +29,23 @@ public class Cutting {
     @Column(name = "supervisor_name")
     private String supervisorName;
 
-    // Constructor
-    public Cutting() {
-        this.cuttingId = "CUT-" + UUID.randomUUID().toString(); // Auto-generate string ID
-    }
+    // Default constructor
+    public Cutting() {}
 
     // Getters and Setters
-    public String getCuttingId() {
+    public Long getCuttingId() {
         return cuttingId;
     }
 
-    public void setCuttingId(String cuttingId) {
+    public void setCuttingId(Long cuttingId) {
         this.cuttingId = cuttingId;
     }
 
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 

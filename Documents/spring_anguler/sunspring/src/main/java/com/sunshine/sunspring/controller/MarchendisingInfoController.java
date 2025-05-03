@@ -42,7 +42,7 @@ public class MarchendisingInfoController {
 	
 	@PutMapping("/{id}")
 	
-	public MerchandisingInfo updateMarchendising(@PathVariable String id,@RequestBody MerchandisingInfo mar) {
+	public MerchandisingInfo updateMarchendising(@PathVariable Long id,@RequestBody MerchandisingInfo mar) {
 		
 		mar.setMerchId(id);
 		
@@ -66,7 +66,7 @@ public class MarchendisingInfoController {
 	
 	@DeleteMapping("/{id}")
 	
-	public void deleteMarchendising(@PathVariable String id) {
+	public void deleteMarchendising(@PathVariable Long id) {
 		
 		mr.deleteById(id);
 	}

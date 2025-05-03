@@ -40,7 +40,7 @@ public class ShippingController {
 	// this is the method to update something in the database
 	
 	@PutMapping("/{id}")
-	public Shipping updateShipping(@PathVariable String id , @RequestBody Shipping ship) {
+	public Shipping updateShipping(@PathVariable Long id , @RequestBody Shipping ship) {
 		
 		
 		ship.setShippingId(id);
@@ -64,7 +64,7 @@ public class ShippingController {
 	
 	@DeleteMapping("/{id}")
 	
-	public void deleteShipping(@PathVariable String id) {
+	public void deleteShipping(@PathVariable Long id) {
 		
 		
 		sr.deleteById(id);

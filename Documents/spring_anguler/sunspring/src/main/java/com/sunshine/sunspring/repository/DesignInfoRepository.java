@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sunshine.sunspring.model.DesignInfo;
 
-public interface DesignInfoRepository  extends JpaRepository<DesignInfo, String> {
+public interface DesignInfoRepository  extends JpaRepository<DesignInfo, Long> {
 
 }

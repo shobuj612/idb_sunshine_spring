@@ -2,18 +2,18 @@ package com.sunshine.sunspring.model;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "orders") // 'order' is a reserved word in SQL
 public class Order {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID using the database
     @Column(name = "order_id")
-    private String orderId;
+    private Long orderId; // Changed from String to Long
 
     @Column(name = "buyer_id", nullable = false)
-    private String buyerId;
+    private Long buyerId; // Changed from String to Long
 
     @Column(name = "style_no")
     private String styleNo;
@@ -34,28 +34,20 @@ public class Order {
 
     public Order() {}
 
-    // Auto-generate UUID if not set
-    @PrePersist
-    public void generateId() {
-        if (this.orderId == null || this.orderId.isEmpty()) {
-            this.orderId = UUID.randomUUID().toString();
-        }
-    }
-
     // Getters and Setters
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
-    public String getBuyerId() {
+    public Long getBuyerId() {
         return buyerId;
     }
 
-    public void setBuyerId(String buyerId) {
+    public void setBuyerId(Long buyerId) {
         this.buyerId = buyerId;
     }
 

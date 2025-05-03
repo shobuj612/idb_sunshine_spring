@@ -43,7 +43,7 @@ public class QcController {
 	
 	@PutMapping("/{id}")
 	
-	public QC updateQC(@PathVariable String id, @RequestBody QC qc) {
+	public QC updateQC(@PathVariable Long id, @RequestBody QC qc) {
 		
 		
 		qc.setQcId(id);
@@ -72,7 +72,7 @@ public class QcController {
 	
 	
 	@DeleteMapping("/{id}")
-	public void deleteQc(@PathVariable String id) {
+	public void deleteQc(@PathVariable Long id) {
 		
 		
 		qr.deleteById(id);

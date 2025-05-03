@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sunshine.sunspring.model.QC;
 
-public interface QcRepository extends JpaRepository<QC, String> {
+public interface QcRepository extends JpaRepository<QC, Long> {
 
 }

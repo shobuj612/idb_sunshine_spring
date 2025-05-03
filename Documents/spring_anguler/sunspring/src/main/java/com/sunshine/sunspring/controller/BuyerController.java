@@ -24,7 +24,7 @@ public class BuyerController {
 
     // Update buyer by ID
     @PutMapping("/{id}")
-    public Buyer updateBuyer(@PathVariable String id, @RequestBody Buyer buyer) {
+    public Buyer updateBuyer(@PathVariable Long id, @RequestBody Buyer buyer) {
         buyer.setBuyerId(id); // Ensure the ID is set for update
         return br.save(buyer);
     }
@@ -37,7 +37,7 @@ public class BuyerController {
 
     // Delete buyer by ID
     @DeleteMapping("/{id}")
-    public void deleteBuyer(@PathVariable String id) {
+    public void deleteBuyer(@PathVariable Long id) {
         br.deleteById(id);
     }
 }
