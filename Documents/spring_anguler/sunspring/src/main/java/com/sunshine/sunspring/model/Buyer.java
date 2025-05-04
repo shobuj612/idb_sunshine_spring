@@ -5,11 +5,12 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "buyer")
 public class Buyer {
+	@Id
+	
+	@Column(name = "buyer_id")
+	private Long buyerId;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Use GenerationType.SEQUENCE for Oracle if needed
-    @Column(name = "buyer_id")
-    private Long buyerId;
+    
 
     @Column(name = "buyer_name", nullable = true)
     private String buyerName;
