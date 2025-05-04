@@ -43,7 +43,7 @@ public class ShippingController {
 	public Shipping updateShipping(@PathVariable Long id , @RequestBody Shipping ship) {
 		
 		
-		ship.setShippingId(id);
+		ship.setShipping_id(id);
 		
 		return sr.save(ship);
 	}

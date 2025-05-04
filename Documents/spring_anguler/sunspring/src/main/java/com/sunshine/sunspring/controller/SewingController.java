@@ -50,7 +50,7 @@ public class SewingController {
 	public Sewing updateSewing(@PathVariable Long id , @RequestBody Sewing sew) {
 		
 		
-		sew.setSewingId(id);
+		sew.setSewing_id(id);
 		
 		return sr.save(sew);
 	}

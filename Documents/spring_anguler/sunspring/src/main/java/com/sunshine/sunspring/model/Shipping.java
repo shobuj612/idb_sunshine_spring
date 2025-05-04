@@ -8,22 +8,22 @@ import java.util.Date;
 public class Shipping {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID using the database
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "shipping_id")
-    private Long shippingId; // Changed from String to Long
+    private Long shipping_id; // No initialization here
 
     @Column(name = "order_id", nullable = false)
-    private Long orderId; // Changed from String to Long
+    private Long order_id; // No initialization here
 
     @Column(name = "shipping_date")
     @Temporal(TemporalType.DATE)
-    private Date shippingDate;
+    private Date shipping_date;
 
     @Column(name = "shipped_qty")
-    private int shippedQty;
+    private int shipped_qty;
 
     @Column(name = "invoice_no")
-    private String invoiceNo;
+    private String invoice_no;
 
     @Column(name = "destination")
     private String destination;
@@ -31,48 +31,49 @@ public class Shipping {
     @Column(name = "carrier")
     private String carrier;
 
-    // No-args constructor
-    public Shipping() {}
+   public Shipping() {
+	   
+   }
 
-    // Getters and Setters
-    public Long getShippingId() {
-        return shippingId;
+    // Getter and Setter methods
+    public Long getShipping_id() {
+        return shipping_id;
     }
 
-    public void setShippingId(Long shippingId) {
-        this.shippingId = shippingId;
+    public void setShipping_id(Long shipping_id) {
+        this.shipping_id = shipping_id;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Long getOrder_id() {
+        return order_id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOrder_id(Long order_id) {
+        this.order_id = order_id;
     }
 
-    public Date getShippingDate() {
-        return shippingDate;
+    public Date getShipping_date() {
+        return shipping_date;
     }
 
-    public void setShippingDate(Date shippingDate) {
-        this.shippingDate = shippingDate;
+    public void setShipping_date(Date shipping_date) {
+        this.shipping_date = shipping_date;
     }
 
-    public int getShippedQty() {
-        return shippedQty;
+    public int getShipped_qty() {
+        return shipped_qty;
     }
 
-    public void setShippedQty(int shippedQty) {
-        this.shippedQty = shippedQty;
+    public void setShipped_qty(int shipped_qty) {
+        this.shipped_qty = shipped_qty;
     }
 
-    public String getInvoiceNo() {
-        return invoiceNo;
+    public String getInvoice_no() {
+        return invoice_no;
     }
 
-    public void setInvoiceNo(String invoiceNo) {
-        this.invoiceNo = invoiceNo;
+    public void setInvoice_no(String invoice_no) {
+        this.invoice_no = invoice_no;
     }
 
     public String getDestination() {

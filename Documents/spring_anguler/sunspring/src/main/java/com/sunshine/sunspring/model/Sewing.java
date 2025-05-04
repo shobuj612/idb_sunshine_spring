@@ -8,65 +8,65 @@ import java.util.Date;
 public class Sewing {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID using the database
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sewing_id")
-    private Long sewingId; // Changed from String to Long
+    public Long sewing_id; // Follows the TypeScript camelCase style
 
     @Column(name = "order_id", nullable = false)
-    private Long orderId; // Changed from String to Long
+    public Long order_id; // Follows the TypeScript camelCase style
 
     @Column(name = "sewing_start_date")
     @Temporal(TemporalType.DATE)
-    private Date sewingStartDate;
+    public Date sewing_start_date; // Follows the TypeScript camelCase style
 
     @Column(name = "sewing_end_date")
     @Temporal(TemporalType.DATE)
-    private Date sewingEndDate;
+    public Date sewing_end_date; // Follows the TypeScript camelCase style
 
     @Column(name = "sewing_qty")
-    private int sewingQty;
+    public int sewing_qty; // Follows the TypeScript camelCase style
 
-    // No-args constructor
+    // Default constructor
     public Sewing() {}
 
     // Getters and Setters
-    public Long getSewingId() {
-        return sewingId;
+    public Long getSewing_id() {
+        return sewing_id;
     }
 
-    public void setSewingId(Long sewingId) {
-        this.sewingId = sewingId;
+    public void setSewing_id(Long sewing_id) {
+        this.sewing_id = sewing_id;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Long getOrder_id() {
+        return order_id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOrder_id(Long order_id) {
+        this.order_id = order_id;
     }
 
-    public Date getSewingStartDate() {
-        return sewingStartDate;
+    public Date getSewing_start_date() {
+        return sewing_start_date;
     }
 
-    public void setSewingStartDate(Date sewingStartDate) {
-        this.sewingStartDate = sewingStartDate;
+    public void setSewing_start_date(Date sewing_start_date) {
+        this.sewing_start_date = sewing_start_date;
     }
 
-    public Date getSewingEndDate() {
-        return sewingEndDate;
+    public Date getSewing_end_date() {
+        return sewing_end_date;
     }
 
-    public void setSewingEndDate(Date sewingEndDate) {
-        this.sewingEndDate = sewingEndDate;
+    public void setSewing_end_date(Date sewing_end_date) {
+        this.sewing_end_date = sewing_end_date;
     }
 
-    public int getSewingQty() {
-        return sewingQty;
+    public int getSewing_qty() {
+        return sewing_qty;
     }
 
-    public void setSewingQty(int sewingQty) {
-        this.sewingQty = sewingQty;
+    public void setSewing_qty(int sewing_qty) {
+        this.sewing_qty = sewing_qty;
     }
 }

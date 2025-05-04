@@ -42,7 +42,7 @@ public class FinishingController {
 	public Finishing updateFinishing(@PathVariable Long id , @RequestBody Finishing fin) {
 		
 		
-		fin.setFinishId(id);
+		fin.setFinish_id(id);
 		
 		return fr.save(fin);
 		

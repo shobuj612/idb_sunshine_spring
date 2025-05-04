@@ -43,7 +43,7 @@ public class FabricController {
 	
 	public FabricInfo updateFabric(@PathVariable Long id , @RequestBody FabricInfo fabric) {
 		
-		fabric.setFabricId(id);
+		fabric.setFabric_id(id);
 		
 		
 		return fr.save(fabric);

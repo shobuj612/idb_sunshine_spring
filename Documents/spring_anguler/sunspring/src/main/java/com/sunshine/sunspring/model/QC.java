@@ -8,68 +8,67 @@ import java.util.Date;
 public class QC {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID using the database
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "qc_id")
-    private Long qcId; // Changed from String to Long
+    private Long qc_id;
 
     @Column(name = "order_id", nullable = false)
-    private Long orderId; // Changed from String to Long
+    private Long order_id;
 
     @Column(name = "inspection_date")
     @Temporal(TemporalType.DATE)
-    private Date inspectionDate;
+    private Date inspection_date;
 
     @Column(name = "passed_qty")
-    private int passedQty;
+    private int passed_qty;
 
     @Column(name = "rejected_qty")
-    private int rejectedQty;
+    private int rejected_qty;
 
     @Column(name = "remarks")
     private String remarks;
 
-    // Constructors
     public QC() {}
 
     // Getters and Setters
-    public Long getQcId() {
-        return qcId;
+    public Long getQc_id() {
+        return qc_id;
     }
 
-    public void setQcId(Long qcId) {
-        this.qcId = qcId;
+    public void setQc_id(Long qc_id) {
+        this.qc_id = qc_id;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Long getOrder_id() {
+        return order_id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOrder_id(Long order_id) {
+        this.order_id = order_id;
     }
 
-    public Date getInspectionDate() {
-        return inspectionDate;
+    public Date getInspection_date() {
+        return inspection_date;
     }
 
-    public void setInspectionDate(Date inspectionDate) {
-        this.inspectionDate = inspectionDate;
+    public void setInspection_date(Date inspection_date) {
+        this.inspection_date = inspection_date;
     }
 
-    public int getPassedQty() {
-        return passedQty;
+    public int getPassed_qty() {
+        return passed_qty;
     }
 
-    public void setPassedQty(int passedQty) {
-        this.passedQty = passedQty;
+    public void setPassed_qty(int passed_qty) {
+        this.passed_qty = passed_qty;
     }
 
-    public int getRejectedQty() {
-        return rejectedQty;
+    public int getRejected_qty() {
+        return rejected_qty;
     }
 
-    public void setRejectedQty(int rejectedQty) {
-        this.rejectedQty = rejectedQty;
+    public void setRejected_qty(int rejected_qty) {
+        this.rejected_qty = rejected_qty;
     }
 
     public String getRemarks() {

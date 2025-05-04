@@ -48,7 +48,7 @@ public class WarehouseController {
 	
 	public Warehouse updateWarehouse(@PathVariable Long id , @RequestBody Warehouse ware) {
 		
-		ware.setWarehouseId(id);
+		ware.setWarehouse_id(id);
 		
 		return wr.save(ware);
 		

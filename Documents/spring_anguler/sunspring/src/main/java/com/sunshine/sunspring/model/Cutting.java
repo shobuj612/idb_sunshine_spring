@@ -8,76 +8,76 @@ import java.util.Date;
 public class Cutting {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // For Oracle, use SEQUENCE if preferred
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cutting_id")
-    private Long cuttingId;
+    private Long cutting_id;
 
     @Column(name = "order_id", nullable = false)
-    private Long orderId; // Changed from String to Long
+    private Long order_id;
 
     @Column(name = "cutting_start_date")
     @Temporal(TemporalType.DATE)
-    private Date cuttingStartDate;
+    private Date cutting_start_date;
 
     @Column(name = "cutting_end_date")
     @Temporal(TemporalType.DATE)
-    private Date cuttingEndDate;
+    private Date cutting_end_date;
 
     @Column(name = "cut_qty")
-    private int cutQty;
+    private int cut_qty;
 
     @Column(name = "supervisor_name")
-    private String supervisorName;
+    private String supervisor_name;
 
     // Default constructor
     public Cutting() {}
 
     // Getters and Setters
-    public Long getCuttingId() {
-        return cuttingId;
+    public Long getCutting_id() {
+        return cutting_id;
     }
 
-    public void setCuttingId(Long cuttingId) {
-        this.cuttingId = cuttingId;
+    public void setCutting_id(Long cutting_id) {
+        this.cutting_id = cutting_id;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Long getOrder_id() {
+        return order_id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOrder_id(Long order_id) {
+        this.order_id = order_id;
     }
 
-    public Date getCuttingStartDate() {
-        return cuttingStartDate;
+    public Date getCutting_start_date() {
+        return cutting_start_date;
     }
 
-    public void setCuttingStartDate(Date cuttingStartDate) {
-        this.cuttingStartDate = cuttingStartDate;
+    public void setCutting_start_date(Date cutting_start_date) {
+        this.cutting_start_date = cutting_start_date;
     }
 
-    public Date getCuttingEndDate() {
-        return cuttingEndDate;
+    public Date getCutting_end_date() {
+        return cutting_end_date;
     }
 
-    public void setCuttingEndDate(Date cuttingEndDate) {
-        this.cuttingEndDate = cuttingEndDate;
+    public void setCutting_end_date(Date cutting_end_date) {
+        this.cutting_end_date = cutting_end_date;
     }
 
-    public int getCutQty() {
-        return cutQty;
+    public int getCut_qty() {
+        return cut_qty;
     }
 
-    public void setCutQty(int cutQty) {
-        this.cutQty = cutQty;
+    public void setCut_qty(int cut_qty) {
+        this.cut_qty = cut_qty;
     }
 
-    public String getSupervisorName() {
-        return supervisorName;
+    public String getSupervisor_name() {
+        return supervisor_name;
     }
 
-    public void setSupervisorName(String supervisorName) {
-        this.supervisorName = supervisorName;
+    public void setSupervisor_name(String supervisor_name) {
+        this.supervisor_name = supervisor_name;
     }
 }

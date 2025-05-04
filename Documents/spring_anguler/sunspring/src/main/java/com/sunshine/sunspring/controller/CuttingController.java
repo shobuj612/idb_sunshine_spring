@@ -50,7 +50,7 @@ public class CuttingController {
 	public Cutting updateCutting(@PathVariable Long id , @RequestBody Cutting cut) {
 		
 		
-		cut.setCuttingId(id);
+		cut.setCutting_id(id);
 		
 	return	cr.save(cut);
 	

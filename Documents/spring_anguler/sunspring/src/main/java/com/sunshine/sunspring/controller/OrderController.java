@@ -40,7 +40,7 @@ public class OrderController {
 	@PutMapping("/{id}")
 	public Order updateOrder(@PathVariable Long id , @RequestBody Order order) {
 		
-		order.setOrderId(id);
+		order.setOrder_id(id);
 		
 		return or.save(order);
 		

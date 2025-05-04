@@ -1,60 +1,64 @@
 package com.sunshine.sunspring.model;
 
-import jakarta.persistence.*;
 import java.util.Date;
+
+import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "warehouse")
 public class Warehouse {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID using the database
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "warehouse_id")
-    private Long warehouseId; // Changed from String to Long
+    private Long warehouse_id;
 
     @Column(name = "order_id", nullable = false)
-    private Long orderId; // Changed from String to Long
+    private Long order_id;
 
     @Column(name = "received_date")
     @Temporal(TemporalType.DATE)
-    private Date receivedDate;
+    private Date received_date;
 
     @Column(name = "stored_qty")
-    private int storedQty;
+    private int stored_qty;
 
-    // No-args constructor
-    public Warehouse() {}
-
-    // Getters and Setters
-    public Long getWarehouseId() {
-        return warehouseId;
+    // Default constructor that initializes fields with default values
+    public Warehouse() {
+        
     }
 
-    public void setWarehouseId(Long warehouseId) {
-        this.warehouseId = warehouseId;
+    // Getter and Setter methods
+    public Long getWarehouse_id() {
+        return warehouse_id;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public void setWarehouse_id(Long warehouse_id) {
+        this.warehouse_id = warehouse_id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public Long getOrder_id() {
+        return order_id;
     }
 
-    public Date getReceivedDate() {
-        return receivedDate;
+    public void setOrder_id(Long order_id) {
+        this.order_id = order_id;
     }
 
-    public void setReceivedDate(Date receivedDate) {
-        this.receivedDate = receivedDate;
+    public Date getReceived_date() {
+        return received_date;
     }
 
-    public int getStoredQty() {
-        return storedQty;
+    public void setReceived_date(Date received_date) {
+        this.received_date = received_date;
     }
 
-    public void setStoredQty(int storedQty) {
-        this.storedQty = storedQty;
+    public int getStored_qty() {
+        return stored_qty;
+    }
+
+    public void setStored_qty(int stored_qty) {
+        this.stored_qty = stored_qty;
     }
 }

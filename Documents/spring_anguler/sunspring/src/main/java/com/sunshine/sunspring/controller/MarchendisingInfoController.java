@@ -44,7 +44,7 @@ public class MarchendisingInfoController {
 	
 	public MerchandisingInfo updateMarchendising(@PathVariable Long id,@RequestBody MerchandisingInfo mar) {
 		
-		mar.setMerchId(id);
+		mar.setMerch_id(id);
 		
 		return mr.save(mar);
 	}

@@ -9,16 +9,16 @@ public class DesignInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "design_id")
-    private Long designId;
+    private Long design_id;
 
     @Column(name = "order_id", nullable = false)
-    private Long orderId; // Changed from String to Long
+    private Long order_id;
 
     @Column(name = "design_name", nullable = false)
-    private String designName;
+    private String design_name;
 
     @Column(name = "design_image_url")
-    private String designImageUrl;
+    private String design_image_url;
 
     @Column(name = "status")
     private String status;
@@ -29,36 +29,36 @@ public class DesignInfo {
     public DesignInfo() {}
 
     // Getters and Setters
-    public Long getDesignId() {
-        return designId;
+    public Long getDesign_id() {
+        return design_id;
     }
 
-    public void setDesignId(Long designId) {
-        this.designId = designId;
+    public void setDesign_id(Long design_id) {
+        this.design_id = design_id;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Long getOrder_id() {
+        return order_id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOrder_id(Long order_id) {
+        this.order_id = order_id;
     }
 
-    public String getDesignName() {
-        return designName;
+    public String getDesign_name() {
+        return design_name;
     }
 
-    public void setDesignName(String designName) {
-        this.designName = designName;
+    public void setDesign_name(String design_name) {
+        this.design_name = design_name;
     }
 
-    public String getDesignImageUrl() {
-        return designImageUrl;
+    public String getDesign_image_url() {
+        return design_image_url;
     }
 
-    public void setDesignImageUrl(String designImageUrl) {
-        this.designImageUrl = designImageUrl;
+    public void setDesign_image_url(String design_image_url) {
+        this.design_image_url = design_image_url;
     }
 
     public String getStatus() {

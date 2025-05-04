@@ -47,7 +47,7 @@ public class DesignInfoController {
 	public DesignInfo updateDesign(@PathVariable Long id, @RequestBody DesignInfo dn) {
 		
 		
-		dn.setDesignId(id);
+		dn.setDesign_id(id);
 		
 		return dr.save(dn);
 		

@@ -4,30 +4,30 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "orders") // 'order' is a reserved word in SQL
+@Table(name = "orders") // 'order' is reserved in SQL
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate ID using the database
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
-    private Long orderId; // Changed from String to Long
+    private Long order_id;
 
     @Column(name = "buyer_id", nullable = false)
-    private Long buyerId; // Changed from String to Long
+    private Long buyer_id;
 
     @Column(name = "style_no")
-    private String styleNo;
+    private String style_no;
 
     @Column(name = "order_qty")
-    private int orderQty;
+    private int order_qty;
 
     @Column(name = "order_date")
     @Temporal(TemporalType.DATE)
-    private Date orderDate;
+    private Date order_date;
 
     @Column(name = "delivery_date")
     @Temporal(TemporalType.DATE)
-    private Date deliveryDate;
+    private Date delivery_date;
 
     @Column(name = "status")
     private String status;
@@ -35,52 +35,52 @@ public class Order {
     public Order() {}
 
     // Getters and Setters
-    public Long getOrderId() {
-        return orderId;
+    public Long getOrder_id() {
+        return order_id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOrder_id(Long order_id) {
+        this.order_id = order_id;
     }
 
-    public Long getBuyerId() {
-        return buyerId;
+    public Long getBuyer_id() {
+        return buyer_id;
     }
 
-    public void setBuyerId(Long buyerId) {
-        this.buyerId = buyerId;
+    public void setBuyer_id(Long buyer_id) {
+        this.buyer_id = buyer_id;
     }
 
-    public String getStyleNo() {
-        return styleNo;
+    public String getStyle_no() {
+        return style_no;
     }
 
-    public void setStyleNo(String styleNo) {
-        this.styleNo = styleNo;
+    public void setStyle_no(String style_no) {
+        this.style_no = style_no;
     }
 
-    public int getOrderQty() {
-        return orderQty;
+    public int getOrder_qty() {
+        return order_qty;
     }
 
-    public void setOrderQty(int orderQty) {
-        this.orderQty = orderQty;
+    public void setOrder_qty(int order_qty) {
+        this.order_qty = order_qty;
     }
 
-    public Date getOrderDate() {
-        return orderDate;
+    public Date getOrder_date() {
+        return order_date;
     }
 
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
+    public void setOrder_date(Date order_date) {
+        this.order_date = order_date;
     }
 
-    public Date getDeliveryDate() {
-        return deliveryDate;
+    public Date getDelivery_date() {
+        return delivery_date;
     }
 
-    public void setDeliveryDate(Date deliveryDate) {
-        this.deliveryDate = deliveryDate;
+    public void setDelivery_date(Date delivery_date) {
+        this.delivery_date = delivery_date;
     }
 
     public String getStatus() {

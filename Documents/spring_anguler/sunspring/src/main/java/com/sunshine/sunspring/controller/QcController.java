@@ -46,7 +46,7 @@ public class QcController {
 	public QC updateQC(@PathVariable Long id, @RequestBody QC qc) {
 		
 		
-		qc.setQcId(id);
+		qc.setQc_id(id);
 		
 		return qr.save(qc);
 		
