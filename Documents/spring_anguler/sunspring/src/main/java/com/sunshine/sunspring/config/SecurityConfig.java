@@ -1,3 +1,4 @@
+/*
 package com.sunshine.sunspring.config;
 
 import com.sunshine.sunspring.security.JwtEntryPoint;
@@ -75,6 +76,8 @@ public class SecurityConfig {
     }
 }
 
+*/
+
 
 
 /*
@@ -150,9 +153,6 @@ public class SecurityConfig {
 
 
 
-/*
- *
-
 package com.sunshine.sunspring.config;
 
 import com.sunshine.sunspring.security.JwtEntryPoint;
@@ -167,6 +167,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 public class SecurityConfig {
@@ -174,7 +177,6 @@ public class SecurityConfig {
     private final JwtFilter jwtFilter;
     private final JwtEntryPoint jwtEntryPoint;
 
-    // ✅ Constructor to initialize final fields
     public SecurityConfig(JwtFilter jwtFilter, JwtEntryPoint jwtEntryPoint) {
         this.jwtFilter = jwtFilter;
         this.jwtEntryPoint = jwtEntryPoint;
@@ -187,7 +189,10 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http
+            .cors()
+            .and()
+            .csrf().disable()
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/login").permitAll()
                 .requestMatchers("/march/**").hasRole("MARCH")
@@ -227,8 +232,22 @@ public class SecurityConfig {
         """);
         return hierarchy;
     }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.addAllowedOrigin("http://localhost:4200");
+        configuration.addAllowedMethod("*");
+        configuration.addAllowedHeader("*");
+        configuration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 }
 
- */
+
+ 
 
 
