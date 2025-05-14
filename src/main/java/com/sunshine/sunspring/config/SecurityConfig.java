@@ -1,3 +1,98 @@
+
+
+package com.sunshine.sunspring.config;
+
+import com.sunshine.sunspring.security.JwtEntryPoint;
+import com.sunshine.sunspring.security.JwtFilter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
+
+@Configuration
+public class SecurityConfig {
+
+    private final JwtFilter jwtFilter;
+    private final JwtEntryPoint jwtEntryPoint;
+
+    public SecurityConfig(JwtFilter jwtFilter, JwtEntryPoint jwtEntryPoint) {
+        this.jwtFilter = jwtFilter;
+        this.jwtEntryPoint = jwtEntryPoint;
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
+    }
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .cors().and()
+            .csrf().disable()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+            .exceptionHandling().authenticationEntryPoint(jwtEntryPoint).and()
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/login").permitAll()
+
+                // Highest role gets access to all below
+                .requestMatchers("/march/**").hasAnyRole("MARCH")
+                .requestMatchers("/design/**").hasAnyRole("MARCH", "DESIGN")
+                .requestMatchers("/fabric/**").hasAnyRole("MARCH", "DESIGN", "FABRIC")
+                .requestMatchers("/cutting/**").hasAnyRole("MARCH", "DESIGN", "FABRIC", "CUTTING")
+                .requestMatchers("/sewing/**").hasAnyRole("MARCH", "DESIGN", "FABRIC", "CUTTING", "SEWING")
+                .requestMatchers("/finishing/**").hasAnyRole("MARCH", "DESIGN", "FABRIC", "CUTTING", "SEWING", "FINISHING")
+                .requestMatchers("/qc/**").hasAnyRole("MARCH", "DESIGN", "FABRIC", "CUTTING", "SEWING", "FINISHING", "QC")
+                .requestMatchers("/warehouse/**").hasAnyRole("MARCH", "DESIGN", "FABRIC", "CUTTING", "SEWING", "FINISHING", "QC", "WAREHOUSE")
+                .requestMatchers("/shipping/**").hasAnyRole("MARCH", "DESIGN", "FABRIC", "CUTTING", "SEWING", "FINISHING", "QC", "WAREHOUSE", "SHIPPING")
+
+                .anyRequest().authenticated()
+            );
+
+        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }
+
+    // CORS Configuration
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(List.of("http://localhost:4200")); // Angular frontend
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowCredentials(true); // For Authorization headers (JWT)
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+        return source;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*
 package com.sunshine.sunspring.config;
 
 import com.sunshine.sunspring.security.JwtEntryPoint;
@@ -75,7 +170,7 @@ public class SecurityConfig {
     }
 }
 
-
+*/
 
 /*
  * 
