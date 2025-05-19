@@ -49,7 +49,6 @@ public class OrderController {
 	// this is method to create order or post order to the database
 	
 	@PostMapping
-	
 	public Order postOrder(@RequestBody Order order) {
 		return or.save(order);
 	}
@@ -57,7 +56,6 @@ public class OrderController {
 	// this is method to delete 
 	
 	@DeleteMapping("/{id}")
-	
 	public void deleteOrder(@PathVariable Long id) {
 		
 		or.deleteById(id);
