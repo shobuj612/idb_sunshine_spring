@@ -148,11 +148,6 @@ public class SecurityConfig {
 
 */
 
-
-
-
-
-
 package com.sunshine.sunspring.config;
 
 import com.sunshine.sunspring.security.JwtEntryPoint;
@@ -195,6 +190,7 @@ public class SecurityConfig {
             .csrf().disable()
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/login").permitAll()
+                .requestMatchers("api/report/**").authenticated()
                 .requestMatchers("/march/**").hasRole("MARCH")
                 .requestMatchers("/design/**").hasAnyRole("MARCH", "DESIGN")
                 .requestMatchers("/fabric/**").hasAnyRole("MARCH", "DESIGN", "FABRIC")
